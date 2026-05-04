@@ -1,4 +1,4 @@
-# Gemento Benchmark - 에이전트 오염 방지 테스트
+# Gemento Agent Context Preservation - 에이전트 오염 방지 테스트
 
 ## 결과 요약
 | 테스트 | manual/ 있음 | manual/ 없음 |
