@@ -1,0 +1,14 @@
+{
+  "benchmark": "B4",
+  "date": "2026-05-03",
+  "agent": "jarvis",
+  "variant": "B (도구 사용)",
+  "results": [
+    {"task": "서버 상태 확인", "method": "curl /health", "correct": true, "time_ms": 500},
+    {"task": "리눅스 봇 수 확인", "method": "SSH + docker ps", "correct": true, "time_ms": 3000},
+    {"task": "윈도우 봇 수 확인", "method": "SSH + docker ps", "correct": true, "time_ms": 3000},
+    {"task": "데이터 클리어율 확인", "method": "SSH + python3", "correct": true, "time_ms": 5000}
+  ],
+  "accuracy": 1.0,
+  "notes": "도구 사용 시 100% 정확, 추론만으로는 불가능한 항목들"
+}

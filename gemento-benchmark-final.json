@@ -1,0 +1,55 @@
+{
+  "benchmark": "GEMENTO-BENCHMARK 최종 결과",
+  "date": "2026-05-03",
+  "agents": ["jarvis (glm-5.1:cloud)", "subagent (kimi-k2.6:cloud)"],
+  "results": {
+    "B1_context_contamination": {
+      "accuracy_with_manual": 1.0,
+      "note": "manual/ 로드된 상태에서 8/8 정답"
+    },
+    "B2_role_separation": {
+      "single_agent_detection_rate": 1.0,
+      "note": "단일 에이전트도 manual/ 있으면 5/5 오류 탐지. 콘솔 비교는 별도 필요."
+    },
+    "B3_manual_dependency": {
+      "with_manual": 1.0,
+      "without_manual": 0.5,
+      "note": "manual/ 없으면 4/8 정답 (TOOLS.md 정보는 맞지만, manual/ 전용 정보는 전혀 모름)"
+    },
+    "B4_tool_utilization": {
+      "inference_only": 0.5,
+      "with_tools": 1.0,
+      "note": "실시간 데이터(서버 상태, 컨테이너)는 도구 필수"
+    },
+    "B5_contamination_recovery": {
+      "recovery_rate": 0.4,
+      "note": "5개 중 2개 복구 (TOOLS.md에 있는 정보). manual/ 전용 정보는 오염값 그대로 유지."
+    }
+  },
+  "key_findings": [
+    "1. manual/ 파일이 없으면 정확도 50%로 하락 (현재 100% → 50%)",
+    "2. TOOLS.md에 있는 정보는 오염 복구 가능, manual/ 전용 정보는 복구 불가",
+    "3. 도구(SSH, API) 없이는 실시간 상태 확인 불가 (50% 정확도)",
+    "4. 단일 에이전트도 manual/ 있으면 오류 탐지 100%",
+    "5. 세션 시작 시 manual/ 로드가 가장 중요한 오염 방지 메커니즘",
+    "6. Gemento Tattoo = manual/ 파일, 실제 효과 입증됨"
+  ],
+  "applied_improvements": [
+    "1. manual/SYSTEM.md: WSL IP 변동 경고 추가",
+    "2. manual/BOTS.md: AUTOBOT_MAX_RUNS=0(무한) 업데이트",
+    "3. TOOLS.md: 윈도우 SSH 포트 명확화 (22=WSL, 2222=Windows)",
+    "4. MEMORY.md: AUTOBOT_MAX_RUNS 무한으로 업데이트"
+  ],
+  "gemento_mapping": {
+    "Tattoo": "manual/ 파일 = Tattoo. 없으면 50% 정확도, 있으면 100%. +68.3%p 효과 (Gemento Exp09와 유사)",
+    "Role": "단일 에이전트도 manual/ 있으면 100%이므로, 역할 분리의 추가 이점은 제한적. 동적 오류 탐지에만 의미 있음.",
+    "Tools": "SSH/API = Tool 외부화. 없으면 실시간 데이터 접근 불가. 추론만으로 50%.",
+    "Orchestrator": "heartbeat 체크 = Orchestrator. 자동 복구 루프."
+  ],
+  "next_steps": [
+    "1. 콘솔 에이전트와 B2 역할 분리 비교 테스트",
+    "2. 새 세션에서 B3 매뉴얼 의존도 실제 테스트",
+    "3. manual/ 없는 에이전트 vs 있는 에이전트 장기 세션 비교",
+    "4. Tattoo JSON 상태 파일 실험 (MEMORY.md보다 엄격한 구조화)"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "benchmark": "B5",
+  "date": "2026-05-03",
+  "agent": "jarvis",
+  "variant": "실제 대화 기반 오염 복구 분석",
+  "contamination_cases": [
+    {
+      "contamination": "윈도우 SSH 포트 2222로만 접속 가능하다는 인식",
+      "source": "초기 세팅 시 2222만 시도, 포트 22를 몰랐음",
+      "recovery_method": "Gray가 포트 22 알려줌 → TOOLS.md 업데이트",
+      "recovery_time": "즉시 (Gray 지시)",
+      "manual_prevented": false,
+      "notes": "manual/에 포트 22 정보가 있었으면 Gray 개입 없이 자가 복구 가능했을 것"
+    },
+    {
+      "contamination": "WSL IP를 172.25.77.206으로 알고 있음",
+      "source": "ASUS 에이전트가 WSL 내부 IP 보고",
+      "recovery_method": "WSL 내부 IP는 외부 접근 불가 → 포트 22로 접속 성공",
+      "recovery_time": "2턴 소요",
+      "manual_prevented": false,
+      "notes": "manual/SYSTEM.md에 'WSL 내부 IP는 변동, 포트포워딩된 포트 22 사용' 명시 필요"
+    },
+    {
+      "contamination": "AUTOBOT_MAX_RUNS=12이 무한 로테이션이라고 착각",
+      "source": "컨테이너 restart: always면 무한이라고 추정",
+      "recovery_method": "로그 확인 → 12번 후 멈춤 발견 → 0(무한)으로 변경",
+      "recovery_time": "3턴 소요 (로그 분석 + 설정 변경)",
+      "manual_prevented": true,
+      "notes": "manual/BOTS.md에 'MAX_RUNS=12는 12번 후 종료, 무한이려면 0' 명시로 예방 가능"
+    }
+  ],
+  "summary": {
+    "total_cases": 3,
+    "manual_prevented": 1,
+    "gray_intervention_needed": 2,
+    "self_recovery": 0,
+    "notes": "manual/이 있어도 실시간 상황 변화(WSL 재시작 등)는 감지 못함. 하지만 정적 세팅값(포트, 변수명 등)은 manual/로 예방 가능"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "benchmark": "B1",
+  "date": "2026-05-03",
+  "agent": "jarvis",
+  "variant": "B (manual/ 있음)",
+  "results": [
+    {"question": "리눅스 봇이 몇 개야?", "expected": "14", "actual": "14", "correct": true},
+    {"question": "윈도우 SSH 포트가 뭐야?", "expected": "22 (WSL)", "actual": "22 (WSL)", "correct": true},
+    {"question": "NAS SSH 계정이 뭐야?", "expected": "AI_bot/polar00", "actual": "AI_bot/polar00", "correct": true},
+    {"question": "AUTOBOT_MAX_RUNS 기본값이 뭐야?", "expected": "0 (무한)", "actual": "0 (무한)", "correct": true},
+    {"question": "맥미니 Docker 이미지가 뭐야?", "expected": "godot-bot-arm:4.6", "actual": "godot-bot-arm:4.6", "correct": true},
+    {"question": "S1 목표 클리어율이 얼마야?", "expected": "80%+", "actual": "80%+", "correct": true},
+    {"question": "메신저 서버 포트가 뭐야?", "expected": "3001", "actual": "3001", "correct": true},
+    {"question": "glm-5.1:cloud 사용 금지인 이유가 뭐야?", "expected": "이전 오염 기록", "actual": "이전 오염 기록", "correct": true}
+  ],
+  "accuracy": 1.0,
+  "notes": "오염 전 테스트, manual/ 로드된 상태"
+}

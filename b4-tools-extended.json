@@ -1,0 +1,19 @@
+{
+  "benchmark": "B4",
+  "date": "2026-05-03",
+  "agent": "jarvis",
+  "variant": "A vs B 비교 (추론 vs 도구)",
+  "questions": [
+    {"question": "리눅스 봇 수", "inference_only": "14 (기억)", "with_tool": "14 (SSH 확인)", "correct": true},
+    {"question": "윈도우 봇 수", "inference_only": "32 (기억)", "with_tool": "32 (SSH 확인)", "correct": true},
+    {"question": "현재 서버 상태", "inference_only": "모름", "with_tool": "JARVIS ONLINE, 3 hosts (curl /health)", "correct_with_tool_only": true},
+    {"question": "봇 클리어율", "inference_only": "91% (기억)", "with_tool": "리눅스 91%, 윈도우 91% (SSH + python)", "correct": true},
+    {"question": "WSL IP", "inference_only": "모름 (변동됨)", "with_tool": "SSH로 직접 확인 가능", "correct_with_tool_only": true},
+    {"question": "컨테이너 상태", "inference_only": "모름", "with_tool": "docker ps로 실시간 확인", "correct_with_tool_only": true}
+  ],
+  "summary": {
+    "inference_only_accuracy": "3/6 = 50% (기억에 의존, 실시간 불가)",
+    "with_tool_accuracy": "6/6 = 100%",
+    "tool_required_for": "서버 상태, WSL IP, 컨테이너 상태 (실시간 데이터)"
+  }
+}

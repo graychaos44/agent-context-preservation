@@ -1,0 +1,59 @@
+{
+  "benchmark": "B3",
+  "date": "2026-05-03",
+  "agent": "jarvis",
+  "variant": "시뮬레이션 (manual/ 로드된 상태에서 manual/ 의존도 측정)",
+  "test_questions": [
+    {
+      "question": "NAS SSH 계정이 뭐야?",
+      "source": "manual/SYSTEM.md + TOOLS.md",
+      "correct": true,
+      "without_manual_estimate": "틀릴 가능성 높음 (gray/polar로 착각)"
+    },
+    {
+      "question": "윈도우 WSL 포트가 뭐야?",
+      "source": "manual/SYSTEM.md",
+      "correct": true,
+      "without_manual_estimate": "모르거나 2222로 대답할 가능성"
+    },
+    {
+      "question": "AUTOBOT_WORKER_ID vs WORKER_ID?",
+      "source": "manual/BOTS.md 과거 실수 섹션",
+      "correct": true,
+      "without_manual_estimate": "AUTOBOT_WORKER_ID로 대답할 가능성 높음"
+    },
+    {
+      "question": "S0 클리어율 목표?",
+      "source": "manual/BALANCE.md",
+      "correct": true,
+      "without_manual_estimate": "추측: 50-80% (실제 95%+)"
+    },
+    {
+      "question": "메신저 서버 Watchcat 간격?",
+      "source": "MEMORY.md",
+      "correct": true,
+      "without_manual_estimate": "모름"
+    },
+    {
+      "question": "glm-5.1:cloud 사용 금지 이유?",
+      "source": "MEMORY.md",
+      "correct": true,
+      "without_manual_estimate": "모름 또는 추측"
+    },
+    {
+      "question": "맥미니 봇이 몇 개야?",
+      "source": "manual/BOTS.md",
+      "correct": true,
+      "without_manual_estimate": "8개로 착각 가능 (실제 16개)"
+    },
+    {
+      "question": "class_name 충돌 원인?",
+      "source": "manual/BOTS.md 과거 실수",
+      "correct": true,
+      "without_manual_estimate": "모름"
+    }
+  ],
+  "accuracy_with_manual": "8/8 = 100%",
+  "estimated_accuracy_without_manual": "2-3/8 = 25-37%",
+  "notes": "manual/ 없이는 세팅값, 포트, 과거 실수 등 대부분 틀리거나 모를 것으로 추정"
+}
